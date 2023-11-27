@@ -30,21 +30,44 @@
       <!-- Barre latérale -->
       <br>
       <br>
-      <h2 class="text-light">Dashboard</h2>
-      <br>
+      <h4 class="text-light">Tableau de bord</h4><hr>
+      
       <br>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="/acceuil">Gestion des employers </a>
+        <a class="nav-link active text-light" aria-current="page" href="/acceuil">
+    <ion-icon name="people-outline" style="font-size: 30px; vertical-align: middle;"></ion-icon>Employeur</a>
         </li>
         <br>
         <li class="nav-item">
-          <a class="nav-link text-light" href="/liste">Calcule des salaires</a>
+          <a class="nav-link text-light" href="{{ route('profilEmployers.formulaire') }}"><ion-icon name="apps-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>ProfilEmployeur</a>
         </li>
         <br>
         <li class="nav-item">
-          <a class="nav-link text-light" href="/liste">Bulletin de paie</a>
+          <a class="nav-link text-light" href="{{ route('postes.accueil') }}"><ion-icon name="clipboard-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Poste</a>
         </li>
+       <br>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{{ route('departements.formulaire') }}"><ion-icon name="copy-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Departement</a>
+        </li>
+        <br>
+        <li class="nav-item">
+          <a class="nav-link text-light" href=""><ion-icon name="calculator-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>salaire</a>
+
+        </li>
+        <br>
+       
+        <li class="nav-item">
+          <a class="nav-link text-light" href=""><ion-icon name="newspaper-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Bulletin de paie</a>
+        </li>
+        
+        @auth
+    <form class="deconnection" action="{{ route('logout') }}" method="POST">
+        @csrf
+        <ion-icon name="log-out-outline"style="font-size: 30px;vertical-align: middle;"></ion-icon><button type="submit">Déconnexion</button>
+    </form>
+@endauth
+
       </ul>
     </div>
     <div class="col-md col-lg-10 content">
@@ -60,6 +83,9 @@
     </div>
   </div>
 </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
 </x-app-layout>

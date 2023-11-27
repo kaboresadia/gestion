@@ -122,3 +122,12 @@ label{
     padding: 20px 10px;
     text-align: center;
 }
+.deconnection {
+    background-color: white;
+    position: relative;
+    left: 5px;
+    top: 02px;
+    padding: 5px 3px;
+    width: 160px;
+    
+}

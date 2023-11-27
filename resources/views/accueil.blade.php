@@ -31,7 +31,7 @@
     <div class="row"> 
         <div class="col-md-6  text-white rounded">
            <form action='/register/traitement' method="POST">
-            <h2 class="inscrit text-white">Veuillez inscrire un employer</h2><hr>
+            <h2 class="inscrit text-white">Veuillez inscrire un employé</h2><hr>
             @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nom</label>
@@ -80,5 +80,7 @@
 
   <script src="{{asset('js/bootstrap.min.js') }}"></script>
     <script src="{{asset('js/script.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -6,28 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <title>Formulaire d'inscription</title>
+    <title>Liste des Départements</title>
 </head>
 
 <body>
     @if (session('status'))
-    <!-- if (isset($_GET['succes'])) { -->
     <div class="alert  alert-dismissible fade show alert-success" id="alert" role="alert">
-        <strong>Bravo!</strong> {{session('status')}}.
-        <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
+        <strong>Bravo!</strong> {{ session('status') }}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     @endif
 
-    <a class="btn btn-info" href="{{route('acceuil')}}">Ajouter un etudiant</a>
+    <a class="btn btn-info" href="{{ route('departements.formulaire') }}">Ajouter un département</a>
     <div class="container tableau">
         <table class="table table-striped table-bordered pad text-center tableau">
             <thead class="table-info">
                 <tr>
                     <th scope="col">N°</th>
-                    <th scope="col">NOM</th>
-                    <th scope="col">PRENOM</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Numéro de téléphone</th>
+                    <th scope="col">Nom du Département</th>
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
@@ -36,27 +32,22 @@
                 $i = 1;
                 @endphp
 
-                @foreach($clients as $clients)
-
+                @foreach($departements as $departement)
 
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{$clients->nom}}</td>
-                    <td>{{$clients->prenom}}</td>
-                    <td>{{$clients->email}}</td>
-                    <td>{{$clients->numero}}</td>
+                    <td>{{ $departement->nom }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('modifier',$clients->id)}}">Modifier</a>
+                        <a class="btn btn-primary" href="{{ route('departements.modifier', $departement->id) }}">Modifier</a>
                     </td>
                     <td>
-                        <a class="btn btn-dark" href="{{route('detail',$clients->id)}}">Details</a>
+                        <a class="btn btn-dark" href="{{ route('departements.detail', $departement->id) }}">Détails</a>
                     </td>
-
                     <td>
-                        <a class="btn btn-danger" onclick='return confirm("Voulez-vous vraiment supprimer cet employer")' href="{{route('supprimer',$clients->id)}}">Supprimer</a>
+                        <a class="btn btn-danger" onclick='return confirm("Voulez-vous vraiment supprimer ce département")' href="{{ route('departements.supprimer', $departement->id) }}">Supprimer</a>
                     </td>
-                   
                 </tr>
+
                 @php
                 $i++;
                 @endphp
@@ -65,8 +56,6 @@
             </tbody>
         </table>
     </div>
-
-
 </body>
 
 </html>
