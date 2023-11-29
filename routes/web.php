@@ -5,6 +5,8 @@ use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\ProfilEmployerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PosteController;
+use App\Http\Controllers\SalaireController;
+use App\Http\Controllers\BulletinController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -99,7 +101,7 @@ Route::get('/profilEmployers/detail/{id}', [ProfilEmployerController::class, 'de
 
 
 
-// Routes pour le PosteController
+
 // Afficher la liste des postes
 Route::get('/postes/liste', [PosteController::class, 'affichage'])->name('postes.liste');
 
@@ -122,6 +124,43 @@ Route::get('/postes/supprimer/{id}', [PosteController::class, 'delete'])->name('
 Route::get('/postes/detail/{id}', [PosteController::class, 'detail'])->name('postes.detail');
 
 
+
+
+
+
+// Liste des salaires
+Route::get('/salaires', [SalaireController::class, 'affichage'])->name('salaires.liste');
+
+// Détails d'un salaire
+Route::get('/salaires/{id}', [SalaireController::class, 'detail'])->name('salaires.detail');
+
+// Ajout d'un salaire
+Route::get('/salaires/ajouter', [SalaireController::class, 'form_register'])->name('salaires.ajouter');
+Route::post('/salaires/ajouter', [SalaireController::class, 'traitement_register'])->name('salaires.traitement_ajout');
+
+// Modification d'un salaire
+Route::get('/salaires/modifier/{id}', [SalaireController::class, 'edit'])->name('salaires.modifier');
+Route::post('/salaires/modifier/{id}', [SalaireController::class, 'traitement_update'])->name('salaires.traitement_update');
+
+// Suppression d'un salaire
+Route::get('/salaires/supprimer/{id}', [SalaireController::class, 'delete'])->name('salaires.supprimer');
+
+
+
+
+// ...
+
+Route::get('/bulletins/liste', [BulletinController::class, 'affichage'])->name('bulletins.liste');
+
+Route::get('/bulletins/ajout', [BulletinController::class, 'formAjout'])->name('bulletins.ajout');
+Route::post('/bulletins/ajout', [BulletinController::class, 'traitementAjout'])->name('bulletins.traitementAjout');
+
+Route::get('/bulletins/modifier/{id}', [BulletinController::class, 'edit'])->name('bulletins.modifier');
+Route::post('/bulletins/modifier', [BulletinController::class, 'traitementUpdate'])->name('bulletins.traitementUpdate');
+
+Route::get('/bulletins/supprimer/{id}', [BulletinController::class, 'delete'])->name('bulletins.supprimer');
+
+Route::get('/bulletins/detail/{id}', [BulletinController::class, 'detail'])->name('bulletins.detail');
 
 
     

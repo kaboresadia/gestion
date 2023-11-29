@@ -32,43 +32,50 @@
       <br>
       <h4 class="text-light">Tableau de bord</h4><hr>
       
-      <br>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-        <a class="nav-link active text-light" aria-current="page" href="/acceuil">
-    <ion-icon name="people-outline" style="font-size: 30px; vertical-align: middle;"></ion-icon>Employeur</a>
-        </li>
-        <br>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="{{ route('profilEmployers.formulaire') }}"><ion-icon name="apps-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>ProfilEmployeur</a>
-        </li>
-        <br>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="{{ route('postes.accueil') }}"><ion-icon name="clipboard-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Poste</a>
-        </li>
-       <br>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="{{ route('departements.formulaire') }}"><ion-icon name="copy-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Departement</a>
-        </li>
-        <br>
-        <li class="nav-item">
-          <a class="nav-link text-light" href=""><ion-icon name="calculator-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>salaire</a>
-
-        </li>
-        <br>
-       
-        <li class="nav-item">
-          <a class="nav-link text-light" href=""><ion-icon name="newspaper-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Bulletin de paie</a>
-        </li>
-        
-        @auth
-    <form class="deconnection" action="{{ route('logout') }}" method="POST">
-        @csrf
-        <ion-icon name="log-out-outline"style="font-size: 30px;vertical-align: middle;"></ion-icon><button type="submit">Déconnexion</button>
-    </form>
-@endauth
-
-      </ul>
+      <br><ul class="nav flex-column">
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ route('departements.formulaire') }}">
+            <ion-icon name="copy-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Departement
+        </a>
+    </li>
+    <br>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ route('postes.accueil') }}">
+            <ion-icon name="clipboard-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Poste
+        </a>
+    </li>
+    <br>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ route('profilEmployers.formulaire') }}">
+            <ion-icon name="apps-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>ProfilEmployeur
+        </a>
+    </li>
+    <br>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ route('salaires.ajouter') }}">
+            <ion-icon name="calculator-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Salaire
+        </a>
+    </li>
+    <br>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="/acceuil">
+            <ion-icon name="people-outline" style="font-size: 30px; vertical-align: middle;"></ion-icon>Employeur
+        </a>
+    </li>
+    <br>
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ route('bulletins.ajout') }}">
+            <ion-icon name="newspaper-outline" style="font-size: 30px;vertical-align: middle;"></ion-icon>Bulletin de paie
+        </a>
+    </li>
+    
+    @auth
+        <form class="deconnection" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <ion-icon name="log-out-outline"style="font-size: 30px;vertical-align: middle;"></ion-icon><button type="submit">Déconnexion</button>
+        </form>
+    @endauth
+</ul>
     </div>
     <div class="col-md col-lg-10 content">
       <img src="{{ asset('image/image1.jpg') }}" alt="logo" width="100%" height="auto">
